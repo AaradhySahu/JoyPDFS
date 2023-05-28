@@ -136,57 +136,70 @@
         </ul>
     </div>
 <script>
-    const sections = document.querySelectorAll('.section');
-    let isDropdownVisible = false;
-    
-    sections.forEach((section) => {
-      const button = section.querySelector('.notes-btn');
-      const dropdown = section.querySelector('.dropdown');
-    
-      button.addEventListener('click', () => {
-        toggleDropdown();
-        if (isDropdownVisible) {
-          generateJuneNotes(dropdown);
-        }
-      });
-    
-      button.addEventListener('click', (event) => {
-        if (!isDropdownVisible) {
-          event.preventDefault();
-        }
-      });
-    
-      section.addEventListener('mouseleave', () => {
-        if (isDropdownVisible) {
-          toggleDropdown();
-        }
-      });
-    });
-    
-    function toggleDropdown() {
-      sections.forEach((section) => {
-        const dropdown = section.querySelector('.dropdown');
-        dropdown.classList.toggle('visible');
-      });
-      isDropdownVisible = !isDropdownVisible;
+   const sections = document.querySelectorAll('.section');
+let openDropdown = null;
+
+sections.forEach((section) => {
+  const button = section.querySelector('.notes-btn');
+  const dropdown = section.querySelector('.dropdown');
+
+  button.addEventListener('click', () => {
+    if (openDropdown !== dropdown) {
+      closeDropdown();
+      openDropdown = dropdown;
+      toggleDropdown();
+      generateJuneNotes(dropdown);
+    } else {
+      closeDropdown();
+      openDropdown = null;
     }
-    
-    function generateJuneNotes(dropdown) {
-      if (dropdown.children.length === 0) {
-        for (let i = 1; i <= 30; i++) {
-          const li = document.createElement('li');
-          const a = document.createElement('a');
-          a.href = isEven(i) ? 'https://www.pornhub.com' : 'https://www.google.com';
-          a.innerText = `${i} June`;
-          li.appendChild(a);
-          dropdown.appendChild(li);
-        }
-      }
+  });
+
+  button.addEventListener('click', (event) => {
+    if (!isOpen(dropdown)) {
+      event.preventDefault();
     }
-    
-    function isEven(num) {
-      return num % 2 === 0;
+  });
+
+  section.addEventListener('mouseleave', () => {
+    if (isOpen(dropdown)) {
+      closeDropdown();
+      openDropdown = null;
     }
+  });
+});
+
+function toggleDropdown() {
+  openDropdown.classList.toggle('visible');
+}
+
+function closeDropdown() {
+  if (openDropdown) {
+    openDropdown.classList.remove('visible');
+  }
+}
+
+function isOpen(dropdown) {
+  return dropdown.classList.contains('visible');
+}
+
+function generateJuneNotes(dropdown) {
+  if (dropdown.children.length === 0) {
+    for (let i = 1; i <= 30; i++) {
+      const li = document.createElement('li');
+      const a = document.createElement('a');
+      a.href = isEven(i) ? 'https://www.pornhub.com' : 'https://www.google.com';
+      a.innerText = `${i} June`;
+      li.appendChild(a);
+      dropdown.appendChild(li);
+    }
+  }
+}
+
+function isEven(num) {
+  return num % 2 === 0;
+}
+
   </script>    
       
 </body>
