@@ -135,64 +135,59 @@
             <!-- English June Notes -->
         </ul>
     </div>
-
-    <script>
-        const sections = document.querySelectorAll('.section');
-        let isDropdownVisible = false;
-      
-        sections.forEach((section) => {
-          const button = section.querySelector('.notes-btn');
-          const dropdown = section.querySelector('.dropdown');
-      
-          button.addEventListener('click', () => {
-            toggleDropdown();
-            if (isDropdownVisible) {
-              generateJuneNotes(dropdown);
-            }
-          });
-      
-          button.addEventListener('click', (event) => {
-            if (!isDropdownVisible) {
-              event.preventDefault();
-            }
-          });
-      
-          section.addEventListener('mouseleave', () => {
-            if (isDropdownVisible) {
-              toggleDropdown();
-            }
-          });
-        });
-      
-        function toggleDropdown() {
-          sections.forEach((section) => {
-            const dropdown = section.querySelector('.dropdown');
-            dropdown.classList.toggle('visible');
-            const buttons = dropdown.querySelectorAll('.dropdown li a');
-            buttons.forEach((button) => {
-              button.style.pointerEvents = isDropdownVisible ? 'auto' : 'none';
-            });
-          });
-          isDropdownVisible = !isDropdownVisible;
+<script>
+    const sections = document.querySelectorAll('.section');
+    let isDropdownVisible = false;
+    
+    sections.forEach((section) => {
+      const button = section.querySelector('.notes-btn');
+      const dropdown = section.querySelector('.dropdown');
+    
+      button.addEventListener('click', () => {
+        toggleDropdown();
+        if (isDropdownVisible) {
+          generateJuneNotes(dropdown);
         }
-      
-        function generateJuneNotes(dropdown) {
-          if (dropdown.children.length === 0) {
-            for (let i = 1; i <= 30; i++) {
-              const li = document.createElement('li');
-              const a = document.createElement('a');
-              a.href = isEven(i) ? 'https://www.pornhub.com' : 'https://www.google.com';
-              a.innerText = `${i} June`;
-              li.appendChild(a);
-              dropdown.appendChild(li);
-            }
-          }
+      });
+    
+      button.addEventListener('click', (event) => {
+        if (!isDropdownVisible) {
+          event.preventDefault();
         }
-      
-        function isEven(num) {
-          return num % 2 === 0;
+      });
+    
+      section.addEventListener('mouseleave', () => {
+        if (isDropdownVisible) {
+          toggleDropdown();
         }
-      </script>
+      });
+    });
+    
+    function toggleDropdown() {
+      sections.forEach((section) => {
+        const dropdown = section.querySelector('.dropdown');
+        dropdown.classList.toggle('visible');
+      });
+      isDropdownVisible = !isDropdownVisible;
+    }
+    
+    function generateJuneNotes(dropdown) {
+      if (dropdown.children.length === 0) {
+        for (let i = 1; i <= 30; i++) {
+          const li = document.createElement('li');
+          const a = document.createElement('a');
+          a.href = isEven(i) ? 'https://www.pornhub.com' : 'https://www.google.com';
+          a.innerText = `${i} June`;
+          li.appendChild(a);
+          dropdown.appendChild(li);
+        }
+      }
+    }
+    
+    function isEven(num) {
+      return num % 2 === 0;
+    }
+  </script>    
       
 </body>
 </html>
