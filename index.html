@@ -1,13 +1,131 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Landing Page</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JoyPDFS</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f9f9f9;
+        }
+
+        .navbar {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+        }
+
+        .navbar .navbar-brand {
+            font-weight: bold;
+            font-size: 24px;
+            padding-top: 10px;
+        }
+
+        .navbar .nav-link {
+            color: #fff;
+            font-size: 18px;
+        }
+
+        .navbar .navbar-brand img {
+            height: 40px;
+            width: auto;
+            margin-top: -10px;
+        }
+
+        .dropdown {
+            display: none;
+            position: absolute;
+            top: 100%;
+            width: auto;
+            background-color: #f9f9f9;
+            padding: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            z-index: 1;
+        }
+
+        .navbar .nav-item:hover .dropdown {
+            display: block;
+        }
+
+        .dropdown .btn-group-vertical {
+            margin-top: 10px;
+        }
+    </style>
 </head>
 <body>
-  <h1 style="text-align: center;">Welcome To JoyPDFs</h1>
-  <div style="text-align: center;"><button><a href="/10A.html" >10A</a></button></div>
+    <nav class="navbar navbar-expand-md">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="https://i.ibb.co/4T54NQG/logo.png" alt="JoyPDFS Logo">
+            </a>
+            <ul class="navbar-nav mx-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Section 1</a>
+                    <div class="dropdown">
+                        <div class="btn-group-vertical">
+                            <a class="btn btn-light" href="#">Button 1</a>
+                            <a class="btn btn-light" href="#">Button 2</a>
+                        </div>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Section 2</a>
+                    <div class="dropdown">
+                        <div class="btn-group-vertical">
+                            <a class="btn btn-light" href="#">Button 1</a>
+                            <a class="btn btn-light" href="#">Button 2</a>
+                        </div>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Section 3</a>
+                    <div class="dropdown">
+                        <div class="btn-group-vertical">
+                            <a class="btn btn-light" href="#">Button 1</a>
+                            <a class="btn btn-light" href="#">Button 2</a>
+                        </div>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Section 4</a>
+                    <div class="dropdown">
+                        <div class="btn-group-vertical">
+                            <a class="btn btn-light" href="#">Button 1</a>
+                            <a class="btn btn-light" href="#">Button 2</a>
+                        </div>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Section 5</a>
+                    <div class="dropdown">
+                        <div class="btn-group-vertical">
+                            <a class="btn btn-light" href="#">Button 1</a>
+                            <a class="btn btn-light" href="#">Button 2</a>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container mt-5">
+        <h1 class="text-center">Welcome to JoyPDFS</h1>
+        <p class="text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ultrices fringilla urna, vitae dignissim ligula pharetra vel.</p>
+    </div>
+
+    <div class="container mt-5 text-center">
+      <div class="d-flex justify-content-center">
+          <a href="https://www.google.com" class="btn btn-primary mx-2">Class 8</a>
+          <a href="https://www.google.com" class="btn btn-primary mx-2">Class 9</a>
+          <a href="https://www.google.com" class="btn btn-primary mx-2">Class 10</a>
+          <a href="https://www.google.com" class="btn btn-primary mx-2">PYN</a>
+      </div>
+  </div>
+  
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
