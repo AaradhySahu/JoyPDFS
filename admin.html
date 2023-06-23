@@ -93,6 +93,7 @@
       color: red;
     }
   </style>
+  <script src="/redirect.js"></script>
   <script>
    function login() {
   var idInput = document.getElementById('id');
@@ -104,12 +105,22 @@
 
   if (password === 'promptengineer' && (id === 'Aadarsh' || id === 'Aaradhy')) {
     var container = document.getElementsByClassName('container')[0];
-    container.innerHTML = '<h1>Uploading Page</h1>';
+
+    // Use AJAX to fetch the content from uploading-page.html
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', 'uploading-page.html', true);
+    xhr.onreadystatechange = function() {
+      if (xhr.readyState === 4 && xhr.status === 200) {
+        container.innerHTML = xhr.responseText;
+      }
+    };
+    xhr.send();
   } else {
     incorrect.innerHTML = "Incorrect password";
     incorrect.style.color = "red";
   }
 }
+
   </script>
 </body>
 </html>
