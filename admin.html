@@ -94,22 +94,22 @@
     }
   </style>
   <script>
-    function login() {
-      var idInput = document.getElementById('id');
-      var passwordInput = document.getElementById('password');
-      var incorrect = document.getElementById('parainc');
+   function login() {
+  var idInput = document.getElementById('id');
+  var passwordInput = document.getElementById('password');
+  var incorrect = document.getElementById('parainc');
 
-      var id = idInput.value;
-      var password = passwordInput.value;
+  var id = idInput.value;
+  var password = passwordInput.value;
 
-      if (password === 'promptengineer' && (id === 'Aadarsh' || id === 'Aaradhy')) {
-        window.location.href = 'admin1.html'; 
-      }
-       else {
-        incorrect.innerHTML = "Incorrect password";
-        incorrect.style.color = "red";
-      }
-    }
+  if (password === 'promptengineer' && (id === 'Aadarsh' || id === 'Aaradhy')) {
+    var container = document.getElementsByClassName('container')[0];
+    container.innerHTML = '<h1>Uploading Page</h1>';
+  } else {
+    incorrect.innerHTML = "Incorrect password";
+    incorrect.style.color = "red";
+  }
+}
   </script>
 </body>
 </html>
