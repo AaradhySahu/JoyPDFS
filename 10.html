@@ -1,6 +1,100 @@
 <html><head>
   <title>Class 10 Notes</title>
-  <link rel="stylesheet" href="/styles10.css">
+  <style>
+    body {
+    text-align: center;
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+}
+
+h1 {
+    margin-top: 50px;
+    color: #333;
+}
+
+.section {
+    margin-top: 30px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s;
+}
+
+.section:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.section h2 {
+    color: #007bff;
+    margin-bottom: 10px;
+}
+
+.dropdown {
+    opacity: 0;
+    height: 0;
+    margin-top: 10px;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    transition: opacity 0.3s, height 0.3s;
+}
+
+.dropdown.visible {
+    opacity: 1;
+    height: auto;
+}
+.dropdown.visible li a {
+display: inline-block;
+padding: 5px 10px;
+background-color: #f1f1f1;
+color: #333;
+text-decoration: none;
+border-radius: 3px;
+transition: background-color 0.3s;
+}
+
+.dropdown:not(.visible) li a {
+pointer-events: none;
+cursor: default;
+opacity: 0.5;
+}
+.dropdown li {
+    display: inline-block;
+    margin: 5px;
+}
+
+.dropdown li a {
+    display: inline-block;
+    padding: 5px 10px;
+    background-color: #f1f1f1;
+    color: #333;
+    text-decoration: none;
+    border-radius: 3px;
+    transition: background-color 0.3s;
+}
+
+.dropdown li a:hover {
+    background-color: #ddd;
+}
+
+.notes-btn {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.notes-btn:hover {
+    background-color: #0056b3;
+}
+  </style>
   <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-firestore.js"></script>
 
