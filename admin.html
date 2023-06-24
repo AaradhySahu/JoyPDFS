@@ -1,9 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-firestore.js"></script>
   <title>Admin Page</title>
 </head>
 <body>
+  
   <div class="container">
     <h1>Admin</h1>
     <form>
@@ -93,6 +96,7 @@
       color: red;
     }
   </style>
+  <script src="/redirect.js"></script>
   <script>
    function login() {
   var idInput = document.getElementById('id');
@@ -101,6 +105,7 @@
 
   var id = idInput.value;
   var password = passwordInput.value;
+
 
   if (password === 'promptengineer' && (id === 'Aadarsh' || id === 'Aaradhy')) {
     var container = document.getElementsByClassName('container')[0];
@@ -120,6 +125,73 @@
   }
 }
 
+var firebaseConfig = {
+            apiKey: "AIzaSyD8UWn-JsuhnkKIv7mCSmpTQMJn4WCIevQ",
+            authDomain: "plucky-sight-388018.firebaseapp.com",
+            projectId: "plucky-sight-388018",
+            storageBucket: "plucky-sight-388018.appspot.com",
+            messagingSenderId: "983900971989",
+            appId: "1:983900971989:web:049f8c26fcaae81124d35c",
+            measurementId: "G-Z2S0GWJ8LB"
+        };
+        firebase.initializeApp(firebaseConfig);
+        var db = firebase.firestore();
+
+function submitForm(event) {
+
+            event.preventDefault();
+            
+            var classInput = document.getElementById('class');
+            var subjectInput = document.getElementById('subject');
+            var dateInput = document.getElementById('date');
+            var monthInput = document.getElementById('month');
+            var linkInput = document.getElementById('link');
+            var classValue = classInput.value;
+            var subjectValue = subjectInput.value;
+            var dateValue = dateInput.value;
+            var monthValue = monthInput.value;
+            var linkValue = linkInput.value;
+            
+            var collectionName = classValue.toString();
+            var documentName = subjectValue.toString();
+            var fieldName = monthValue + '' + dateValue.toString();
+            var fieldValue = linkValue;
+            
+            var docRef = db.collection(collectionName).doc(documentName);
+            
+            docRef.get().then(function(doc) {
+                if (doc.exists) {
+                    // Document exists, update the specific field
+                    var data = doc.data();
+                    data[fieldName] = fieldValue;
+                    
+                    docRef.update(data)
+                        .then(function() {
+                            console.log('Document successfully updated!');
+                            document.getElementById('upload-form').reset();
+                        })
+                        .catch(function(error) {
+                            console.error('Error updating document: ', error);
+                        });
+                } else {
+                    // Document does not exist, create a new document with the field
+                    var data = {};
+                    data[fieldName] = fieldValue;
+                    
+                    docRef.set(data)
+                        .then(function() {
+                            console.log('Document successfully created!');
+                        
+                            document.getElementById('upload-form').reset();
+                        })
+                        .catch(function(error) {
+                            console.error('Error creating document: ', error);
+                        });
+                }
+            }).catch(function(error) {
+                console.error('Error getting document: ', error);
+            });
+        }
   </script>
 </body>
 </html>
