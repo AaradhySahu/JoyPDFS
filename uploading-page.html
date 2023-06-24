@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="/JoyPDFS/redirect.js"></script>
+    
     <title>Document</title>
 
     <style>
@@ -63,38 +63,16 @@
             background-color: #0a395d;
         }
     </style>
-
 </head>
 <body>
- 
-   
+
+    <script>
+        
+    </script>
+
     <h1 class="center">Uploading Page</h1>
     <div class="uploading-content">
-        <form onsubmit=
-        
-        "event.preventDefault(); var classInput = document.getElementById('class');
-        var subjectInput = document.getElementById('subject');
-        var dateInput = document.getElementById('date');
-        var monthInput=document.getElementById('month')
-        var classValue = classInput.value;
-        var subjectValue = subjectInput.value;
-        var dateValue = dateInput.value;
-        var monthValue = monthInput.value;
-
-
-        var Class = classValue;
-        var Subject = subjectValue;
-        var Month = monthValue
-        var Date = dateValue;
-        
-
-        console.log(Class);
-        console.log(Subject);
-        console.log(monthValue);
-        console.log(Date);
-        
-
-        return false;">
+        <form id="upload-form" onsubmit="event.preventDefault(); submitForm(event);">
             <div class="form-group">
                 <label for="class">Class:</label>
                 <input type="number" id="class" name="class" min="8" max="10" placeholder="Enter class (8-10)" required>
@@ -114,31 +92,33 @@
             <div class="form-group">
                 <label for="month">Month:</label>
                 <select id="month" name="month" required>
-                  <option value="">Select month</option>
-                  <option value="January">January</option>
-                  <option value="February">February</option>
-                  <option value="March">March</option>
-                  <option value="April">April</option>
-                  <option value="May">May</option>
-                  <option value="June">June</option>
-                  <option value="July">July</option>
-                  <option value="August">August</option>
-                  <option value="September">September</option>
-                  <option value="October">October</option>
-                  <option value="November">November</option>
-                  <option value="December">December</option>
+                    <option value="">Select month</option>
+                    <option value="January">January</option>
+                    <option value="February">February</option>
+                    <option value="March">March</option>
+                    <option value="April">April</option>
+                    <option value="May">May</option>
+                    <option value="June">June</option>
+                    <option value="July">July</option>
+                    <option value="August">August</option>
+                    <option value="September">September</option>
+                    <option value="October">October</option>
+                    <option value="November">November</option>
+                    <option value="December">December</option>
                 </select>
-              </div>
-              
+            </div>
             <div class="form-group">
                 <label for="date">Date:</label>
                 <input type="text" id="date" name="date" pattern="(0[1-9]|1[0-9]|2[0-9]|3[01])" placeholder="Enter date (01-31)" required>
             </div>
-            
-            <button type="submit">Upload</button>
+            <div class="form-group">
+                <label for="link">Link:</label>
+                <input type="text" id="link" name="link" placeholder="Enter PDF link" required>
+            </div>
+            <button type="submit" value="Submit">Upload</button>
         </form>
     </div>
 
-
+    
 </body>
 </html>
