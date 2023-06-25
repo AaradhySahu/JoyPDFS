@@ -1,514 +1,465 @@
-<html><head>
-  <title>Class 10 Notes</title>
-  <style>
-    body {
-    text-align: center;
-    font-family: Arial, sans-serif;
-    background-color: #f9f9f9;
-}
-
-h1 {
-    margin-top: 50px;
-    color: #333;
-}
-
-.section {
-    margin-top: 30px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    background-color: #fff;
-    padding: 20px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    transition: box-shadow 0.3s;
-}
-
-.section:hover {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.section h2 {
-    color: #007bff;
-    margin-bottom: 10px;
-}
-
-.dropdown {
-    opacity: 0;
-    height: 0;
-    margin-top: 10px;
-    padding: 0;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    transition: opacity 0.3s, height 0.3s;
-}
-
-.dropdown.visible {
-    opacity: 1;
-    height: auto;
-}
-.dropdown.visible li a {
-display: inline-block;
-padding: 5px 10px;
-background-color: #f1f1f1;
-color: #333;
-text-decoration: none;
-border-radius: 3px;
-transition: background-color 0.3s;
-}
-
-.dropdown:not(.visible) li a {
-pointer-events: none;
-cursor: default;
-opacity: 0.5;
-}
-.dropdown li {
-    display: inline-block;
-    margin: 5px;
-}
-
-.dropdown li a {
-    display: inline-block;
-    padding: 5px 10px;
-    background-color: #f1f1f1;
-    color: #333;
-    text-decoration: none;
-    border-radius: 3px;
-    transition: background-color 0.3s;
-}
-
-.dropdown li a:hover {
-    background-color: #ddd;
-}
-
-.notes-btn {
-    background-color: #007bff;
-    color: #fff;
-    padding: 10px 20px;
-    font-size: 16px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.notes-btn:hover {
-    background-color: #0056b3;
-}
-  </style>
+<html>
   <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-firestore.js"></script>
+<head>
+        
+  <title>Class 10 Notes</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css">
+  <style>
+      body {
+          text-align: center;
+          font-family: Arial, sans-serif;
+          background-color: #f9f9f9;
+      }
 
-</head>
-<body>
+      h1 {
+          margin-top: 50px;
+          color: #333;
+      }
+
+      .section {
+          margin-top: 30px;
+          border: 1px solid #ddd;
+          border-radius: 5px;
+          background-color: #fff;
+          padding: 20px;
+          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+          transition: box-shadow 0.3s;
+      }
+
+      .section:hover {
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      .section h2 {
+          color: #007bff;
+          margin-bottom: 10px;
+      }
+
+      .dropdown {
+          opacity: 0;
+          height: 0;
+          margin-top: 10px;
+          padding: 0;
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: center;
+          transition: opacity 0.3s, height 0.3s;
+      }
+
+      .dropdown.visible {
+          opacity: 1;
+          height: auto;
+      }
+
+      .dropdown li {
+          display: inline-block;
+          margin: 5px;
+      }
+
+      .dropdown li a {
+          display: inline-block;
+          padding: 5px 10px;
+          background-color: #f1f1f1;
+          color: #333;
+          text-decoration: none;
+          border-radius: 3px;
+          transition: background-color 0.3s;
+      }
+
+      .dropdown li a:hover {
+          background-color: #ddd;
+      }
+
+      .notes-btn {
+          background-color: #007bff;
+          color: #fff;
+          padding: 10px 20px;
+          font-size: 16px;
+          border: none;
+          border-radius: 5px;
+          cursor: pointer;
+          transition: background-color 0.3s;
+      }
+
+      .notes-btn:hover {
+          background-color: #0056b3;
+      }
+  </style>
+
   <h1>Class 10 Notes</h1>
   <div class="section" id="maths-section">
       <h2>Maths</h2>
       <button class="notes-btn">July Notes</button>
-      <ul class="dropdown" id="maths-July-notes">
-        <li><a href="google.com">01 July</a></li>
-        <li><a href="google.com">02 July</a></li>
-        <li><a href="google.com">03 July</a></li>
-        <li><a href="google.com">04 July</a></li>
-        <li><a href="google.com">05 July</a></li>
-        <li><a href="google.com">06 July</a></li>
-        <li><a href="google.com">07 July</a></li>
-        <li><a href="google.com">08 July</a></li>
-        <li><a href="google.com">09 July</a></li>
-        <li><a href="google.com">10 July</a></li>
-        <li><a href="google.com">11 July</a></li>
-        <li><a href="google.com">12 July</a></li>
-        <li><a href="google.com">13 July</a></li>
-        <li><a href="google.com">14 July</a></li>
-        <li><a href="google.com">15 July</a></li>
-        <li><a href="google.com">16 July</a></li>
-        <li><a href="google.com">17 July</a></li>
-        <li><a href="google.com">18 July</a></li>
-        <li><a href="google.com">19 July</a></li>
-        <li><a href="google.com">20 July</a></li>
-        <li><a href="google.com">21 July</a></li>
-        <li><a href="google.com">22 July</a></li>
-        <li><a href="google.com">23 July</a></li>
-        <li><a href="google.com">24 July</a></li>
-        <li><a href="google.com">25 July</a></li>
-        <li><a href="google.com">26 July</a></li>
-        <li><a href="google.com">27 July</a></li>
-        <li><a href="google.com">28 July</a></li>
-        <li><a href="google.com">29 July</a></li>
-        <li><a href="google.com">30 July</a></li>
-        <li><a href="google.com">31 July</a></li>
-      </ul>
-      </ul>
-  </div>
+      <ul class="dropdown" id="maths-july-notes">
+        <li><a href="">01 July</a></li>
+        <li><a href="">02 July</a></li>
+        <li><a href="">03 July</a></li>
+        <li><a href="">04 July</a></li>
+        <li><a href="">05 July</a></li>
+        <li><a href="">06 July</a></li>
+        <li><a href="">07 July</a></li>
+        <li><a href="">08 July</a></li>
+        <li><a href="">09 July</a></li>
+        <li><a href="">10 July</a></li>
+        <li><a href="">11 July</a></li>
+        <li><a href="">12 July</a></li>
+        <li><a href="">13 July</a></li>
+        <li><a href="">14 July</a></li>
+        <li><a href="">15 July</a></li>
+        <li><a href="">16 July</a></li>
+        <li><a href="">17 July</a></li>
+        <li><a href="">18 July</a></li>
+        <li><a href="">19 July</a></li>
+        <li><a href="">20 July</a></li>
+        <li><a href="">21 July</a></li>
+        <li><a href="">22 July</a></li>
+        <li><a href="">23 July</a></li>
+        <li><a href="">24 July</a></li>
+        <li><a href="">25 July</a></li>
+        <li><a href="">26 July</a></li>
+        <li><a href="">27 July</a></li>
+        <li><a href="">28 July</a></li>
+        <li><a href="">29 July</a></li>
+        <li><a href="">30 July</a></li>
+        <li><a href="">31 July</a></li>  </div>
   <div class="section" id="science-section">
       <h2>Science</h2>
       <button class="notes-btn">July Notes</button>
-      <ul class="dropdown" id="science-July-notes">
-          <!-- Science July Notes -->
-          <li><a href="google.com">01 July</a></li>
-        <li><a href="google.com">02 July</a></li>
-        <li><a href="google.com">03 July</a></li>
-        <li><a href="google.com">04 July</a></li>
-        <li><a href="google.com">05 July</a></li>
-        <li><a href="google.com">06 July</a></li>
-        <li><a href="google.com">07 July</a></li>
-        <li><a href="google.com">08 July</a></li>
-        <li><a href="google.com">09 July</a></li>
-        <li><a href="google.com">10 July</a></li>
-        <li><a href="google.com">11 July</a></li>
-        <li><a href="google.com">12 July</a></li>
-        <li><a href="google.com">13 July</a></li>
-        <li><a href="google.com">14 July</a></li>
-        <li><a href="google.com">15 July</a></li>
-        <li><a href="google.com">16 July</a></li>
-        <li><a href="google.com">17 July</a></li>
-        <li><a href="google.com">18 July</a></li>
-        <li><a href="google.com">19 July</a></li>
-        <li><a href="google.com">20 July</a></li>
-        <li><a href="google.com">21 July</a></li>
-        <li><a href="google.com">22 July</a></li>
-        <li><a href="google.com">23 July</a></li>
-        <li><a href="google.com">24 July</a></li>
-        <li><a href="google.com">25 July</a></li>
-        <li><a href="google.com">26 July</a></li>
-        <li><a href="google.com">27 July</a></li>
-        <li><a href="google.com">28 July</a></li>
-        <li><a href="google.com">29 July</a></li>
-        <li><a href="google.com">30 July</a></li>
-        <li><a href="google.com">31 July</a></li>
+      <ul class="dropdown" id="science-july-notes">
+        <li><a href="">01 July</a></li>
+        <li><a href="">02 July</a></li>
+        <li><a href="">03 July</a></li>
+        <li><a href="">04 July</a></li>
+        <li><a href="">05 July</a></li>
+        <li><a href="">06 July</a></li>
+        <li><a href="">07 July</a></li>
+        <li><a href="">08 July</a></li>
+        <li><a href="">09 July</a></li>
+        <li><a href="">10 July</a></li>
+        <li><a href="">11 July</a></li>
+        <li><a href="">12 July</a></li>
+        <li><a href="">13 July</a></li>
+        <li><a href="">14 July</a></li>
+        <li><a href="">15 July</a></li>
+        <li><a href="">16 July</a></li>
+        <li><a href="">17 July</a></li>
+        <li><a href="">18 July</a></li>
+        <li><a href="">19 July</a></li>
+        <li><a href="">20 July</a></li>
+        <li><a href="">21 July</a></li>
+        <li><a href="">22 July</a></li>
+        <li><a href="">23 July</a></li>
+        <li><a href="">24 July</a></li>
+        <li><a href="">25 July</a></li>
+        <li><a href="">26 July</a></li>
+        <li><a href="">27 July</a></li>
+        <li><a href="">28 July</a></li>
+        <li><a href="">29 July</a></li>
+        <li><a href="">30 July</a></li>
+        <li><a href="">31 July</a></li>
       </ul>
   </div>
   <div class="section" id="social-section">
       <h2>Social</h2>
       <button class="notes-btn">July Notes</button>
-      <ul class="dropdown" id="social-July-notes">
-          <!-- Social July Notes -->
-          <li><a href="google.com">01 July</a></li>
-        <li><a href="google.com">02 July</a></li>
-        <li><a href="google.com">03 July</a></li>
-        <li><a href="google.com">04 July</a></li>
-        <li><a href="google.com">05 July</a></li>
-        <li><a href="google.com">06 July</a></li>
-        <li><a href="google.com">07 July</a></li>
-        <li><a href="google.com">08 July</a></li>
-        <li><a href="google.com">09 July</a></li>
-        <li><a href="google.com">10 July</a></li>
-        <li><a href="google.com">11 July</a></li>
-        <li><a href="google.com">12 July</a></li>
-        <li><a href="google.com">13 July</a></li>
-        <li><a href="google.com">14 July</a></li>
-        <li><a href="google.com">15 July</a></li>
-        <li><a href="google.com">16 July</a></li>
-        <li><a href="google.com">17 July</a></li>
-        <li><a href="google.com">18 July</a></li>
-        <li><a href="google.com">19 July</a></li>
-        <li><a href="google.com">20 July</a></li>
-        <li><a href="google.com">21 July</a></li>
-        <li><a href="google.com">22 July</a></li>
-        <li><a href="google.com">23 July</a></li>
-        <li><a href="google.com">24 July</a></li>
-        <li><a href="google.com">25 July</a></li>
-        <li><a href="google.com">26 July</a></li>
-        <li><a href="google.com">27 July</a></li>
-        <li><a href="google.com">28 July</a></li>
-        <li><a href="google.com">29 July</a></li>
-        <li><a href="google.com">30 July</a></li>
-        <li><a href="google.com">31 July</a></li>
-      
+      <ul class="dropdown" id="social-july-notes">
+        <li><a href="">01 July</a></li>
+        <li><a href="">02 July</a></li>
+        <li><a href="">03 July</a></li>
+        <li><a href="">04 July</a></li>
+        <li><a href="">05 July</a></li>
+        <li><a href="">06 July</a></li>
+        <li><a href="">07 July</a></li>
+        <li><a href="">08 July</a></li>
+        <li><a href="">09 July</a></li>
+        <li><a href="">10 July</a></li>
+        <li><a href="">11 July</a></li>
+        <li><a href="">12 July</a></li>
+        <li><a href="">13 July</a></li>
+        <li><a href="">14 July</a></li>
+        <li><a href="">15 July</a></li>
+        <li><a href="">16 July</a></li>
+        <li><a href="">17 July</a></li>
+        <li><a href="">18 July</a></li>
+        <li><a href="">19 July</a></li>
+        <li><a href="">20 July</a></li>
+        <li><a href="">21 July</a></li>
+        <li><a href="">22 July</a></li>
+        <li><a href="">23 July</a></li>
+        <li><a href="">24 July</a></li>
+        <li><a href="">25 July</a></li>
+        <li><a href="">26 July</a></li>
+        <li><a href="">27 July</a></li>
+        <li><a href="">28 July</a></li>
+        <li><a href="">29 July</a></li>
+        <li><a href="">30 July</a></li>
+        <li><a href="">31 July</a></li>
       </ul>
   </div>
   <div class="section" id="hindi-section">
       <h2>Hindi</h2>
       <button class="notes-btn">July Notes</button>
-      <ul class="dropdown" id="hindi-July-notes">
-          <!-- Hindi July Notes -->
-          <li><a href="google.com">01 July</a></li>
-        <li><a href="google.com">02 July</a></li>
-        <li><a href="google.com">03 July</a></li>
-        <li><a href="google.com">04 July</a></li>
-        <li><a href="google.com">05 July</a></li>
-        <li><a href="google.com">06 July</a></li>
-        <li><a href="google.com">07 July</a></li>
-        <li><a href="google.com">08 July</a></li>
-        <li><a href="google.com">09 July</a></li>
-        <li><a href="google.com">10 July</a></li>
-        <li><a href="google.com">11 July</a></li>
-        <li><a href="google.com">12 July</a></li>
-        <li><a href="google.com">13 July</a></li>
-        <li><a href="google.com">14 July</a></li>
-        <li><a href="google.com">15 July</a></li>
-        <li><a href="google.com">16 July</a></li>
-        <li><a href="google.com">17 July</a></li>
-        <li><a href="google.com">18 July</a></li>
-        <li><a href="google.com">19 July</a></li>
-        <li><a href="google.com">20 July</a></li>
-        <li><a href="google.com">21 July</a></li>
-        <li><a href="google.com">22 July</a></li>
-        <li><a href="google.com">23 July</a></li>
-        <li><a href="google.com">24 July</a></li>
-        <li><a href="google.com">25 July</a></li>
-        <li><a href="google.com">26 July</a></li>
-        <li><a href="google.com">27 July</a></li>
-        <li><a href="google.com">28 July</a></li>
-        <li><a href="google.com">29 July</a></li>
-        <li><a href="google.com">30 July</a></li>
-        <li><a href="google.com">31 July</a></li>
+      <ul class="dropdown" id="hindi-july-notes">
+        <li><a href="">01 July</a></li>
+        <li><a href="">02 July</a></li>
+        <li><a href="">03 July</a></li>
+        <li><a href="">04 July</a></li>
+        <li><a href="">05 July</a></li>
+        <li><a href="">06 July</a></li>
+        <li><a href="">07 July</a></li>
+        <li><a href="">08 July</a></li>
+        <li><a href="">09 July</a></li>
+        <li><a href="">10 July</a></li>
+        <li><a href="">11 July</a></li>
+        <li><a href="">12 July</a></li>
+        <li><a href="">13 July</a></li>
+        <li><a href="">14 July</a></li>
+        <li><a href="">15 July</a></li>
+        <li><a href="">16 July</a></li>
+        <li><a href="">17 July</a></li>
+        <li><a href="">18 July</a></li>
+        <li><a href="">19 July</a></li>
+        <li><a href="">20 July</a></li>
+        <li><a href="">21 July</a></li>
+        <li><a href="">22 July</a></li>
+        <li><a href="">23 July</a></li>
+        <li><a href="">24 July</a></li>
+        <li><a href="">25 July</a></li>
+        <li><a href="">26 July</a></li>
+        <li><a href="">27 July</a></li>
+        <li><a href="">28 July</a></li>
+        <li><a href="">29 July</a></li>
+        <li><a href="">30 July</a></li>
+        <li><a href="">31 July</a></li>
       </ul>
   </div>
   <div class="section" id="english-section">
       <h2>English</h2>
       <button class="notes-btn">July Notes</button>
-      <ul class="dropdown" id="english-July-notes">
-          <!-- English July Notes -->
-          <li><a href="google.com">01 July</a></li>
-        <li><a href="google.com">02 July</a></li>
-        <li><a href="google.com">03 July</a></li>
-        <li><a href="google.com">04 July</a></li>
-        <li><a href="google.com">05 July</a></li>
-        <li><a href="google.com">06 July</a></li>
-        <li><a href="google.com">07 July</a></li>
-        <li><a href="google.com">08 July</a></li>
-        <li><a href="google.com">09 July</a></li>
-        <li><a href="google.com">10 July</a></li>
-        <li><a href="google.com">11 July</a></li>
-        <li><a href="google.com">12 July</a></li>
-        <li><a href="google.com">13 July</a></li>
-        <li><a href="google.com">14 July</a></li>
-        <li><a href="google.com">15 July</a></li>
-        <li><a href="google.com">16 July</a></li>
-        <li><a href="google.com">17 July</a></li>
-        <li><a href="google.com">18 July</a></li>
-        <li><a href="google.com">19 July</a></li>
-        <li><a href="google.com">20 July</a></li>
-        <li><a href="google.com">21 July</a></li>
-        <li><a href="google.com">22 July</a></li>
-        <li><a href="google.com">23 July</a></li>
-        <li><a href="google.com">24 July</a></li>
-        <li><a href="google.com">25 July</a></li>
-        <li><a href="google.com">26 July</a></li>
-        <li><a href="google.com">27 July</a></li>
-        <li><a href="google.com">28 July</a></li>
-        <li><a href="google.com">29 July</a></li>
-        <li><a href="google.com">30 July</a></li>
-        <li><a href="google.com">31 July</a></li>
+      <ul class="dropdown" id="english-july-notes">
+        <li><a href="">01 July</a></li>
+        <li><a href="">02 July</a></li>
+        <li><a href="">03 July</a></li>
+        <li><a href="">04 July</a></li>
+        <li><a href="">05 July</a></li>
+        <li><a href="">06 July</a></li>
+        <li><a href="">07 July</a></li>
+        <li><a href="">08 July</a></li>
+        <li><a href="">09 July</a></li>
+        <li><a href="">10 July</a></li>
+        <li><a href="">11 July</a></li>
+        <li><a href="">12 July</a></li>
+        <li><a href="">13 July</a></li>
+        <li><a href="">14 July</a></li>
+        <li><a href="">15 July</a></li>
+        <li><a href="">16 July</a></li>
+        <li><a href="">17 July</a></li>
+        <li><a href="">18 July</a></li>
+        <li><a href="">19 July</a></li>
+        <li><a href="">20 July</a></li>
+        <li><a href="">21 July</a></li>
+        <li><a href="">22 July</a></li>
+        <li><a href="">23 July</a></li>
+        <li><a href="">24 July</a></li>
+        <li><a href="">25 July</a></li>
+        <li><a href="">26 July</a></li>
+        <li><a href="">27 July</a></li>
+        <li><a href="">28 July</a></li>
+        <li><a href="">29 July</a></li>
+        <li><a href="">30 July</a></li>
+        <li><a href="">31 July</a></li>
       </ul>
   </div>
-<script>
- const sections = document.querySelectorAll('.section');
-let openDropdown = null;
 
-sections.forEach((section) => {
+  <script>
+      const sections = document.querySelectorAll('.section');
+
+      sections.forEach((section) => {
 const button = section.querySelector('.notes-btn');
 const dropdown = section.querySelector('.dropdown');
 
 button.addEventListener('click', () => {
-  if (openDropdown !== dropdown) {
-    closeDropdown();
-    openDropdown = dropdown;
-    toggleDropdown();
-       } else {
-    closeDropdown();
-    openDropdown = null;
-  }
-});
+  dropdown.classList.toggle('visible');
 
-button.addEventListener('click', (event) => {
-  if (!isOpen(dropdown)) {
-    event.preventDefault();
+  if (dropdown.classList.contains('visible')) {
+    generateJuneNotes(dropdown);
   }
 });
 
 section.addEventListener('mouseleave', () => {
-  if (isOpen(dropdown)) {
-    closeDropdown();
-    openDropdown = null;
+  if (dropdown.classList.contains('visible')) {
+    dropdown.classList.remove('visible');
   }
 });
 });
 
-function toggleDropdown() {
-openDropdown.classList.toggle('visible');
-}
 
-function closeDropdown() {
-if (openDropdown) {
-  openDropdown.classList.remove('visible');
-}
-}
-
-function isOpen(dropdown) {
-return dropdown.classList.contains('visible');
-}
-
-
-function isEven(num) {
-return num % 2 === 0;
-}
-
-</script>  
-
+     
+  </script>
 <script>
-var firebaseConfig = {
-  apiKey: "AIzaSyD8UWn-JsuhnkKIv7mCSmpTQMJn4WCIevQ",
-authDomain: "plucky-sight-388018.firebaseapp.com",
-projectId: "plucky-sight-388018",
-storageBucket: "plucky-sight-388018.appspot.com",
-messagingSenderId: "983900971989",
-appId: "1:983900971989:web:049f8c26fcaae81124d35c",
-measurementId: "G-Z2S0GWJ8LB"
-};
-
-// Initialize Firebase
-firebase.initializeApp(firebaseConfig);
-
-const db = firebase.firestore();
-var collectionName = "10";
-var documentName = "Maths";
-
-// Get the buttons
-var buttons = document.querySelectorAll("#maths-July-notes li a");
-
-// Loop through the buttons and set the href values
-buttons.forEach((button, index) => {
-const fieldNumber = index + 1;
-const fieldName = `July${fieldNumber.toString().padStart(2, "0")}`;
-
-// Retrieve the field value from Firestore
-db.collection(collectionName)
-  .doc(documentName)
-  .get()
-  .then((doc) => {
-    if (doc.exists) {
-      const fieldValue = doc.data()[fieldName];
-      button.href = fieldValue;
-    } else {
-      console.log("Document does not exist");
-    }
-  })
-  .catch((error) => {
-    console.log("Error getting document:", error);
+  var firebaseConfig = {
+    apiKey: "AIzaSyD8UWn-JsuhnkKIv7mCSmpTQMJn4WCIevQ",
+  authDomain: "plucky-sight-388018.firebaseapp.com",
+  projectId: "plucky-sight-388018",
+  storageBucket: "plucky-sight-388018.appspot.com",
+  messagingSenderId: "983900971989",
+  appId: "1:983900971989:web:049f8c26fcaae81124d35c",
+  measurementId: "G-Z2S0GWJ8LB"
+  };
+  
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  
+  const db = firebase.firestore();
+  var collectionName = "10";
+  var documentName = "Maths";
+  
+  // Get the buttons
+  var buttons = document.querySelectorAll("#maths-July-notes li a");
+  
+  // Loop through the buttons and set the href values
+  buttons.forEach((button, index) => {
+  const fieldNumber = index + 1;
+  const fieldName = `July${fieldNumber.toString().padStart(2, "0")}`;
+  
+  // Retrieve the field value from Firestore
+  db.collection(collectionName)
+    .doc(documentName)
+    .get()
+    .then((doc) => {
+      if (doc.exists) {
+        const fieldValue = doc.data()[fieldName];
+        button.href = fieldValue;
+      } else {
+        console.log("Document does not exist");
+      }
+    })
+    .catch((error) => {
+      console.log("Error getting document:", error);
+    });
   });
-});
-</script>
+  </script>
+  
+  <script>
+    var collectionName = "10";
+  var documentName = "Science";
+  
+  // Get the buttons
+  var buttons = document.querySelectorAll("#science-July-notes li a");
+  
+  // Loop through the buttons and set the href values
+  buttons.forEach((button, index) => {
+    const fieldNumber = index + 1;
+    const fieldName = `July${fieldNumber.toString().padStart(2, "0")}`;
+  
+    // Retrieve the field value from Firestore
+    db.collection(collectionName)
+      .doc(documentName)
+      .get()
+      .then((doc) => {
+        if (doc.exists) {
+          const fieldValue = doc.data()[fieldName];
+          button.href = fieldValue;
+        } else {
+          console.log("Document does not exist");
+        }
+      })
+      .catch((error) => {
+        console.log("Error getting document:", error);
+      });
+  });
+  </script>
+  
+  <script>
+    var collectionName = "10";
+  var documentName = "Social";
+  
+  // Get the buttons
+  var buttons = document.querySelectorAll("#social-July-notes li a");
+  
+  // Loop through the buttons and set the href values
+  buttons.forEach((button, index) => {
+    const fieldNumber = index + 1;
+    const fieldName = `July${fieldNumber.toString().padStart(2, "0")}`;
+  
+    // Retrieve the field value from Firestore
+    db.collection(collectionName)
+      .doc(documentName)
+      .get()
+      .then((doc) => {
+        if (doc.exists) {
+          const fieldValue = doc.data()[fieldName];
+          button.href = fieldValue;
+        } else {
+          console.log("Document does not exist");
+        }
+      })
+      .catch((error) => {
+        console.log("Error getting document:", error);
+      });
+  });
+  </script>
+  
+  <script>
+    var collectionName = "10";
+  var documentName = "Hindi";
+  
+  // Get the buttons
+  var buttons = document.querySelectorAll("#hindi-July-notes li a");
+  
+  // Loop through the buttons and set the href values
+  buttons.forEach((button, index) => {
+    const fieldNumber = index + 1;
+    const fieldName = `July${fieldNumber.toString().padStart(2, "0")}`;
+  
+    // Retrieve the field value from Firestore
+    db.collection(collectionName)
+      .doc(documentName)
+      .get()
+      .then((doc) => {
+        if (doc.exists) {
+          const fieldValue = doc.data()[fieldName];
+          button.href = fieldValue;
+        } else {
+          console.log("Document does not exist");
+        }
+      })
+      .catch((error) => {
+        console.log("Error getting document:", error);
+      });
+  });
+  </script>
+  
+  <script>
+    var collectionName = "10";
+  var documentName = "English";
+  
+  // Get the buttons
+  var buttons = document.querySelectorAll("#english-July-notes li a");
+  
+  // Loop through the buttons and set the href values
+  buttons.forEach((button, index) => {
+    const fieldNumber = index + 1;
+    const fieldName = `July${fieldNumber.toString().padStart(2, "0")}`;
+  
+    // Retrieve the field value from Firestore
+    db.collection(collectionName)
+      .doc(documentName)
+      .get()
+      .then((doc) => {
+        if (doc.exists) {
+          const fieldValue = doc.data()[fieldName];
+          button.href = fieldValue;
+        } else {
+          console.log("Document does not exist");
+        }
+      })
+      .catch((error) => {
+        console.log("Error getting document:", error);
+      });
+  });
+  </script>
 
-<script>
-  var collectionName = "10";
-var documentName = "Science";
-
-// Get the buttons
-var buttons = document.querySelectorAll("#science-July-notes li a");
-
-// Loop through the buttons and set the href values
-buttons.forEach((button, index) => {
-  const fieldNumber = index + 1;
-  const fieldName = `July${fieldNumber.toString().padStart(2, "0")}`;
-
-  // Retrieve the field value from Firestore
-  db.collection(collectionName)
-    .doc(documentName)
-    .get()
-    .then((doc) => {
-      if (doc.exists) {
-        const fieldValue = doc.data()[fieldName];
-        button.href = fieldValue;
-      } else {
-        console.log("Document does not exist");
-      }
-    })
-    .catch((error) => {
-      console.log("Error getting document:", error);
-    });
-});
-</script>
-
-<script>
-  var collectionName = "10";
-var documentName = "Social";
-
-// Get the buttons
-var buttons = document.querySelectorAll("#social-July-notes li a");
-
-// Loop through the buttons and set the href values
-buttons.forEach((button, index) => {
-  const fieldNumber = index + 1;
-  const fieldName = `July${fieldNumber.toString().padStart(2, "0")}`;
-
-  // Retrieve the field value from Firestore
-  db.collection(collectionName)
-    .doc(documentName)
-    .get()
-    .then((doc) => {
-      if (doc.exists) {
-        const fieldValue = doc.data()[fieldName];
-        button.href = fieldValue;
-      } else {
-        console.log("Document does not exist");
-      }
-    })
-    .catch((error) => {
-      console.log("Error getting document:", error);
-    });
-});
-</script>
-
-<script>
-  var collectionName = "10";
-var documentName = "Hindi";
-
-// Get the buttons
-var buttons = document.querySelectorAll("#hindi-July-notes li a");
-
-// Loop through the buttons and set the href values
-buttons.forEach((button, index) => {
-  const fieldNumber = index + 1;
-  const fieldName = `July${fieldNumber.toString().padStart(2, "0")}`;
-
-  // Retrieve the field value from Firestore
-  db.collection(collectionName)
-    .doc(documentName)
-    .get()
-    .then((doc) => {
-      if (doc.exists) {
-        const fieldValue = doc.data()[fieldName];
-        button.href = fieldValue;
-      } else {
-        console.log("Document does not exist");
-      }
-    })
-    .catch((error) => {
-      console.log("Error getting document:", error);
-    });
-});
-</script>
-
-<script>
-  var collectionName = "10";
-var documentName = "English";
-
-// Get the buttons
-var buttons = document.querySelectorAll("#english-July-notes li a");
-
-// Loop through the buttons and set the href values
-buttons.forEach((button, index) => {
-  const fieldNumber = index + 1;
-  const fieldName = `July${fieldNumber.toString().padStart(2, "0")}`;
-
-  // Retrieve the field value from Firestore
-  db.collection(collectionName)
-    .doc(documentName)
-    .get()
-    .then((doc) => {
-      if (doc.exists) {
-        const fieldValue = doc.data()[fieldName];
-        button.href = fieldValue;
-      } else {
-        console.log("Document does not exist");
-      }
-    })
-    .catch((error) => {
-      console.log("Error getting document:", error);
-    });
-});
-</script>
-
-</body>
-</html>
+</body></html>
